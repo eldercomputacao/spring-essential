@@ -1,7 +1,7 @@
-package com.elderpereira.springessential.handler;
+package com.elderpereira.springessential.infra.handler;
 
-import com.elderpereira.springessential.exceptions.BusinessException;
-import com.elderpereira.springessential.exceptions.NotFoundException;
+import com.elderpereira.springessential.domain.exceptions.BusinessException;
+import com.elderpereira.springessential.domain.exceptions.NotFoundException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
