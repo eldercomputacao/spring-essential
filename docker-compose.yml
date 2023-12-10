@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  spring-essential:
+    image: maven:3.9.5-eclipse-temurin-21-alpine
+    container_name: spring-essential
+    working_dir: /app_dir
+    ports:
+      - 8080:8080
+      - 5005:5005
+    volumes:
+      - .:/app_dir
+      - ~/.m2/repository:/root/.m2/repository
+    networks:
+      - net-customized
+    command: ./mvnw spring-boot:run -Dspring-boot.run.jvmArguments="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
+
+networks:
+  net-customized:
+    driver: bridge
