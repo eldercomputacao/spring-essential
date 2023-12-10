@@ -1,6 +1,19 @@
 version: '3.8'
 
 services:
+  postgres:
+    container_name: postgres-anime
+    image: postgres:16.0
+    restart: always
+    ports:
+      - 5432:5432
+    networks:
+      - net-customized
+    environment:
+      POSTGRES_DB: anime-db
+      POSTGRES_USER: anime
+      POSTGRES_PASSWORD: anime
+
   spring-essential:
     image: maven:3.9.5-eclipse-temurin-21-alpine
     container_name: spring-essential
@@ -11,6 +24,13 @@ services:
     volumes:
       - .:/app_dir
       - ~/.m2/repository:/root/.m2/repository
+    environment:
+      - PORT=8080
+      - DB_HOST=postgres-anime
+      - DB_PORT=5432
+      - DB_NAME=anime-db
+      - DB_USER=anime
+      - DB_PASSWORD=anime
     networks:
       - net-customized
     command: ./mvnw spring-boot:run -Dspring-boot.run.jvmArguments="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"

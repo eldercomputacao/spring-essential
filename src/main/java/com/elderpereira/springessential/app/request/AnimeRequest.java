@@ -1,4 +1,4 @@
-package com.elderpereira.springessential.dto;
+package com.elderpereira.springessential.app.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AnimeDTO {
+public class AnimeRequest {
     private String name;
     private int episodes;
 }

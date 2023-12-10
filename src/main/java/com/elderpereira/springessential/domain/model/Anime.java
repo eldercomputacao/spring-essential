@@ -1,4 +1,4 @@
-package com.elderpereira.springessential.model;
+package com.elderpereira.springessential.domain.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
