@@ -4,6 +4,7 @@ import com.elderpereira.springessential.app.request.AnimeRequest;
 import com.elderpereira.springessential.domain.model.Anime;
 import com.elderpereira.springessential.domain.ports.AnimeServicePort;
 import com.elderpereira.springessential.util.ModelMapperUtil;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,12 +30,12 @@ public class AnimeController {
     }
 
     @PostMapping
-    public ResponseEntity<Anime> save(@RequestBody AnimeRequest anime) {
+    public ResponseEntity<Anime> save(@Valid @RequestBody AnimeRequest anime) {
         return new ResponseEntity<>(animeService.save(ModelMapperUtil.map(anime, Anime.class)), HttpStatus.CREATED);
     }
 
     @PutMapping(path = "/{id}")
-    public ResponseEntity<Anime> replace(@PathVariable long id, @RequestBody AnimeRequest anime) {
+    public ResponseEntity<Anime> replace(@PathVariable long id, @Valid @RequestBody AnimeRequest anime) {
         return new ResponseEntity<>(animeService.replace(id, ModelMapperUtil.map(anime, Anime.class)), HttpStatus.OK);
     }
 
