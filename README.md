@@ -7,7 +7,10 @@ This project aims to be a spring boot tutorial center
 - Using simple CRUD wit database postgres
 - Using field mapping with ModelMapper
 - Using hexagonal architecture
-- Using spring-boot-starter-data-jpa with postgres
+- using spring-boot-starter-data-jpa with POSTGRES
+- using spring-boot-starter-validation VALIDATION
+- using springdoc-openapi-starter-webmvc-ui SWAGGER
+- using pring-boot-starter-hateoas HATEOAS
 
 ## feat-1
 
@@ -18,5 +21,10 @@ This project aims to be a spring boot tutorial center
 ## feat-2
 
 - using hexagonal architecture
-- using spring-boot-starter-data-jpa with postgres
-- using spring-boot-starter-validation
+- using spring-boot-starter-data-jpa with POSTGRES
+- using spring-boot-starter-validation VALIDATION
+
+## feat-3
+
+- using springdoc-openapi-starter-webmvc-ui SWAGGER
+- using pring-boot-starter-hateoas HATEOAS
