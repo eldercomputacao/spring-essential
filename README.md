@@ -19,4 +19,4 @@ This project aims to be a spring boot tutorial center
 
 - using hexagonal architecture
 - using spring-boot-starter-data-jpa with postgres
-
+- using spring-boot-starter-validation
