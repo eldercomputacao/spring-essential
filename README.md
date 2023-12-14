@@ -11,11 +11,12 @@ This project aims to be a spring boot tutorial center
 - using spring-boot-starter-validation VALIDATION
 - using springdoc-openapi-starter-webmvc-ui SWAGGER
 - using pring-boot-starter-hateoas HATEOAS
+- using spring-boot-starter-data-mongodb
+- added new business rules for anime and posts
 
 ## feat-1
 
-- Base project
-- Simple CRUD without database
+- Using simple CRUD without database
 - Using field mapping with ModelMapper
 
 ## feat-2
@@ -28,3 +29,8 @@ This project aims to be a spring boot tutorial center
 
 - using springdoc-openapi-starter-webmvc-ui SWAGGER
 - using pring-boot-starter-hateoas HATEOAS
+
+## feat-4
+
+- using spring-boot-starter-data-mongodb
+- added new business rules for anime and posts

@@ -1,22 +1,9 @@
 version: '3.8'
 
 services:
-  postgres:
-    container_name: postgres-anime
-    image: postgres:16.0
-    restart: always
-    ports:
-      - 5432:5432
-    networks:
-      - net-customized
-    environment:
-      POSTGRES_DB: anime-db
-      POSTGRES_USER: anime
-      POSTGRES_PASSWORD: anime
-
-  spring-essential:
+  app-spring-essential:
     image: maven:3.9.5-eclipse-temurin-21-alpine
-    container_name: spring-essential
+    container_name: app-spring-essential
     working_dir: /app_dir
     ports:
       - 8080:8080
@@ -25,15 +12,49 @@ services:
       - .:/app_dir
       - ~/.m2/repository:/root/.m2/repository
     environment:
-      - PORT=8080
-      - DB_HOST=postgres-anime
-      - DB_PORT=5432
-      - DB_NAME=anime-db
-      - DB_USER=anime
-      - DB_PASSWORD=anime
+      - SERVER_PORT=8080
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_NAME=postgres-db
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=example
+      - MONGO_DB=mongo-db
+      - MONGO_HOST=mongo
+      - MONGO_PORT=27017
+      - MONGO_USER=root
+      - MONGO_PASSWORD=example
+    depends_on:
+      - postgres
+      - mongo
     networks:
       - net-customized
     command: ./mvnw spring-boot:run -Dspring-boot.run.jvmArguments="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
+
+  postgres:
+    container_name: postgres
+    image: postgres:16.0
+    restart: always
+    ports:
+      - 5432:5432
+    networks:
+      - net-customized
+    environment:
+      POSTGRES_DB: postgres-db
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: example
+
+  mongo:
+    image: mongo:5.0.23-focal
+    container_name: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_DATABASE: mongo-db
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    networks:
+      - net-customized
 
 networks:
   net-customized:
