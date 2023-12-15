@@ -2,6 +2,8 @@ package com.elderpereira.springessential.app.rest;
 
 import com.elderpereira.springessential.app.request.AnimeRequest;
 import com.elderpereira.springessential.app.response.AnimeResponse;
+import com.elderpereira.springessential.app.response.AnimeWithPostsResponse;
+import com.elderpereira.springessential.domain.model.Post;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -64,4 +66,13 @@ public interface AnimeRestController {
     })
     ResponseEntity<Void> delete(@PathVariable long id);
 
+    @GetMapping(path = "{id}/posts")
+    @Operation(summary = "Finds all 'posts' for 'anime'", responses = {
+            @ApiResponse(description = "Success", responseCode = "200", content = {
+                    @Content(mediaType = "application/json", array = @ArraySchema(schema =
+                    @Schema(implementation = AnimeWithPostsResponse.class)))
+            }),
+            @ApiResponse(description = "Internal Error", responseCode = "500", content = @Content)
+    })
+    ResponseEntity<AnimeWithPostsResponse> animeWithPosts(@PathVariable long id);
 }

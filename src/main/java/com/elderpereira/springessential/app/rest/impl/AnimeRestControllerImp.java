@@ -1,9 +1,13 @@
-package com.elderpereira.springessential.app.rest;
+package com.elderpereira.springessential.app.rest.impl;
 
 import com.elderpereira.springessential.app.request.AnimeRequest;
 import com.elderpereira.springessential.app.response.AnimeResponse;
+import com.elderpereira.springessential.app.response.AnimeWithPostsResponse;
+import com.elderpereira.springessential.app.response.PostResponse;
+import com.elderpereira.springessential.app.rest.AnimeRestController;
 import com.elderpereira.springessential.domain.model.Anime;
 import com.elderpereira.springessential.domain.ports.AnimeServicePort;
+import com.elderpereira.springessential.domain.ports.PostServicePort;
 import com.elderpereira.springessential.util.ModelMapperUtil;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +27,9 @@ public class AnimeRestControllerImp implements AnimeRestController {
 
     @Autowired
     private AnimeServicePort animeService;
+
+    @Autowired
+    private PostServicePort postService;
 
     @Override
     public ResponseEntity<List<AnimeResponse>> list() {
@@ -61,5 +68,18 @@ public class AnimeRestControllerImp implements AnimeRestController {
     public ResponseEntity<Void> delete(@PathVariable long id) {
         animeService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @Override
+    public ResponseEntity<AnimeWithPostsResponse> animeWithPosts(long id) {
+        var anime = animeService.findById(id);
+        var posts = postService.findPostsByAnimeId(anime.getId());
+        var animeWithPosts = AnimeWithPostsResponse.builder()
+                .id(anime.getId())
+                .name(anime.getName())
+                .episodes(anime.getEpisodes())
+                .posts(ModelMapperUtil.mapAll(posts, AnimeWithPostsResponse.Post.class))
+                .build();
+        return ResponseEntity.ok(animeWithPosts);
     }
 }
