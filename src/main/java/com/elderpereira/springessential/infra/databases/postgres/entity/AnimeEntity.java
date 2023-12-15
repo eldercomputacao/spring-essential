@@ -1,4 +1,4 @@
-package com.elderpereira.springessential.infra.database.postgres.entity;
+package com.elderpereira.springessential.infra.databases.postgres.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

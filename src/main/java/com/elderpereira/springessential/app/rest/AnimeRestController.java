@@ -4,6 +4,7 @@ import com.elderpereira.springessential.app.request.AnimeRequest;
 import com.elderpereira.springessential.app.response.AnimeResponse;
 import com.elderpereira.springessential.app.response.AnimeWithPostsResponse;
 import com.elderpereira.springessential.domain.model.Post;
+import com.elderpereira.springessential.util.MediaTypeYmal;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -11,6 +12,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +22,8 @@ import java.util.List;
 @Tag(name = "AnimeRestController")
 public interface AnimeRestController {
 
-    @GetMapping
+    @GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE,
+            MediaTypeYmal.APPLICATION_YAML_VALUE})
     @Operation(summary = "Finds all 'animes'", responses = {
             @ApiResponse(description = "Success", responseCode = "200", content = {
                     @Content(mediaType = "application/json", array = @ArraySchema(schema =
@@ -31,7 +34,8 @@ public interface AnimeRestController {
     ResponseEntity<List<AnimeResponse>> list();
 
 
-    @GetMapping(path = "/{id}")
+    @GetMapping(path = "/{id}", produces = {MediaType.APPLICATION_JSON_VALUE,
+            MediaType.APPLICATION_XML_VALUE, MediaTypeYmal.APPLICATION_YAML_VALUE})
     @Operation(summary = "Find 'anime' by id", responses = {
             @ApiResponse(description = "Success", responseCode = "200", content = @Content(schema =
             @Schema(implementation = AnimeResponse.class))),
@@ -40,7 +44,10 @@ public interface AnimeRestController {
     })
     ResponseEntity<AnimeResponse> findById(@PathVariable long id);
 
-    @PostMapping
+    @PostMapping(produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE,
+            MediaTypeYmal.APPLICATION_YAML_VALUE},
+                 consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE,
+            MediaTypeYmal.APPLICATION_YAML_VALUE})
     @Operation(summary = "Save a 'anime'", responses = {
             @ApiResponse(description = "Success", responseCode = "201",
                     content = @Content(schema = @Schema(implementation = AnimeResponse.class))),
@@ -49,7 +56,11 @@ public interface AnimeRestController {
     })
     ResponseEntity<AnimeResponse> save(@Valid @RequestBody AnimeRequest animeRequest);
 
-    @PutMapping(path = "/{id}")
+    @PutMapping(path = "/{id}",
+            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE,
+                    MediaTypeYmal.APPLICATION_YAML_VALUE},
+            consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE,
+                    MediaTypeYmal.APPLICATION_YAML_VALUE})
     @Operation(summary = "Update 'anime'", responses = {
             @ApiResponse(description = "Success", responseCode = "200",
                     content = @Content(schema = @Schema(implementation = AnimeResponse.class))),
@@ -66,7 +77,8 @@ public interface AnimeRestController {
     })
     ResponseEntity<Void> delete(@PathVariable long id);
 
-    @GetMapping(path = "{id}/posts")
+    @GetMapping(path = "{id}/posts", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE,
+            MediaTypeYmal.APPLICATION_YAML_VALUE})
     @Operation(summary = "Finds all 'posts' for 'anime'", responses = {
             @ApiResponse(description = "Success", responseCode = "200", content = {
                     @Content(mediaType = "application/json", array = @ArraySchema(schema =
