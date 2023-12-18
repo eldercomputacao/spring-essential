@@ -34,3 +34,8 @@ This project aims to be a spring boot tutorial center
 
 - using spring-boot-starter-data-mongodb
 - added new business rules for anime and posts
+
+## feat-5
+
+- using content negotiation with jackson-dataformat-xml
+- using content negotiation with jackson-dataformat-yaml
