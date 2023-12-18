@@ -15,6 +15,7 @@ This project aims to be a spring boot tutorial center
 - added new business rules for anime and posts
 - using content negotiation with jackson-dataformat-xml and jackson-dataformat-yaml
 - using CORS (Cross-Origin Resource Sharing)
+- using verb PATCH
 
 ## feat-1
 
