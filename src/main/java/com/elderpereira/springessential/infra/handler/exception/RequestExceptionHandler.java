@@ -1,4 +1,4 @@
-package com.elderpereira.springessential.infra.handler;
+package com.elderpereira.springessential.infra.handler.exception;
 
 import com.elderpereira.springessential.domain.exceptions.BusinessException;
 import com.elderpereira.springessential.domain.exceptions.NotFoundException;

@@ -1,4 +1,4 @@
-package com.elderpereira.springessential.infra.config;
+package com.elderpereira.springessential.infra.configurations.swagger;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;

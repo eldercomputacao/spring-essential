@@ -1,9 +1,9 @@
-package com.elderpereira.springessential.infra.database.mongo.repository;
+package com.elderpereira.springessential.infra.databases.mongo.repository;
 
 import com.elderpereira.springessential.domain.exceptions.DatabaseOperationsException;
 import com.elderpereira.springessential.domain.model.Post;
 import com.elderpereira.springessential.domain.ports.PostRepositoryPort;
-import com.elderpereira.springessential.infra.database.mongo.document.PostDocument;
+import com.elderpereira.springessential.infra.databases.mongo.document.PostDocument;
 import com.elderpereira.springessential.util.ModelMapperUtil;
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

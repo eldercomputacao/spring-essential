@@ -1,5 +1,6 @@
-package com.elderpereira.springessential.infra.handler;
+package com.elderpereira.springessential.infra.handler.exception;
 
+import com.elderpereira.springessential.infra.handler.exception.ResponseError;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package com.elderpereira.springessential.infra.database.mongo.document;
+package com.elderpereira.springessential.infra.databases.mongo.document;
 
 import com.elderpereira.springessential.domain.model.Comment;
 import lombok.*;

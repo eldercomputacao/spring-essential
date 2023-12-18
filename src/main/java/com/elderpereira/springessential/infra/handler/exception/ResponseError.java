@@ -1,4 +1,4 @@
-package com.elderpereira.springessential.infra.handler;
+package com.elderpereira.springessential.infra.handler.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,9 +1,9 @@
-package com.elderpereira.springessential.infra.database.postgres.repository;
+package com.elderpereira.springessential.infra.databases.postgres.repository;
 
 import com.elderpereira.springessential.domain.exceptions.NotFoundException;
 import com.elderpereira.springessential.domain.model.Anime;
 import com.elderpereira.springessential.domain.ports.AnimeRepositoryPort;
-import com.elderpereira.springessential.infra.database.postgres.entity.AnimeEntity;
+import com.elderpereira.springessential.infra.databases.postgres.entity.AnimeEntity;
 import com.elderpereira.springessential.util.ModelMapperUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

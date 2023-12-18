@@ -1,6 +1,6 @@
-package com.elderpereira.springessential.infra.database.mongo.repository;
+package com.elderpereira.springessential.infra.databases.mongo.repository;
 
-import com.elderpereira.springessential.infra.database.mongo.document.PostDocument;
+import com.elderpereira.springessential.infra.databases.mongo.document.PostDocument;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;

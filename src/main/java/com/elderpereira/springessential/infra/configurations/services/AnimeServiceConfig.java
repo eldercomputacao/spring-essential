@@ -1,8 +1,8 @@
-package com.elderpereira.springessential.infra.config;
+package com.elderpereira.springessential.infra.configurations.services;
 
 import com.elderpereira.springessential.domain.ports.AnimeServicePort;
 import com.elderpereira.springessential.domain.service.AnimeService;
-import com.elderpereira.springessential.infra.database.postgres.repository.AnimeRepositoryPostgres;
+import com.elderpereira.springessential.infra.databases.postgres.repository.AnimeRepositoryPostgres;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

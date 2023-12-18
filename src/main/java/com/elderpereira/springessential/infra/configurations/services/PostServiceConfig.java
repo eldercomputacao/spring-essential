@@ -1,8 +1,8 @@
-package com.elderpereira.springessential.infra.config;
+package com.elderpereira.springessential.infra.configurations.services;
 
 import com.elderpereira.springessential.domain.ports.PostServicePort;
 import com.elderpereira.springessential.domain.service.PostService;
-import com.elderpereira.springessential.infra.database.mongo.repository.PostRepositoryMongoDB;
+import com.elderpereira.springessential.infra.databases.mongo.repository.PostRepositoryMongoDB;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
