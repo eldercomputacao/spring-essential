@@ -1,6 +1,9 @@
 server:
   port: ${SERVER_PORT:8080}
 
+cors:
+  origin-patterns: ${ORIGIN_PATTERNS:http://localhost:3000,http://localhost:80,http://localhost:8080}
+
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver

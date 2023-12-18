@@ -1,4 +1,4 @@
-package com.elderpereira.springessential.infra.configurations.contentnegotiation.convert;
+package com.elderpereira.springessential.infra.configurations.web.convert;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;

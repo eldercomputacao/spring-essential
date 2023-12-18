@@ -65,6 +65,12 @@ public class AnimeRestControllerImp implements AnimeRestController {
     }
 
     @Override
+    public ResponseEntity<Void> updateEpisodes(long id, int episodes) {
+        animeService.updateEpisodes(id, episodes);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @Override
     public ResponseEntity<Void> delete(@PathVariable long id) {
         animeService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);

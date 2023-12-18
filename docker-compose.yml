@@ -23,6 +23,7 @@ services:
       - MONGO_PORT=27017
       - MONGO_USER=root
       - MONGO_PASSWORD=example
+      - ORIGIN_PATTERNS=http://localhost:3000,http://localhost:8080,https://elderpereira.com
     depends_on:
       - postgres
       - mongo
