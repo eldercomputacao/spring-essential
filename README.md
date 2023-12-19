@@ -13,6 +13,9 @@ This project aims to be a spring boot tutorial center
 - using pring-boot-starter-hateoas HATEOAS
 - using spring-boot-starter-data-mongodb
 - added new business rules for anime and posts
+- using content negotiation with jackson-dataformat-xml and jackson-dataformat-yaml
+- using CORS (Cross-Origin Resource Sharing)
+- using verb PATCH
 
 ## feat-1
 
@@ -39,3 +42,8 @@ This project aims to be a spring boot tutorial center
 
 - using content negotiation with jackson-dataformat-xml
 - using content negotiation with jackson-dataformat-yaml
+
+## feat-6
+
+- using CORS (Cross-Origin Resource Sharing)
+- using verb PATCH

@@ -5,6 +5,7 @@ import com.elderpereira.springessential.domain.model.Anime;
 import com.elderpereira.springessential.domain.ports.AnimeRepositoryPort;
 import com.elderpereira.springessential.infra.databases.postgres.entity.AnimeEntity;
 import com.elderpereira.springessential.util.ModelMapperUtil;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -46,5 +47,11 @@ public class AnimeRepositoryPostgres implements AnimeRepositoryPort {
         animeSaved.setName(anime.getName());
         animeSaved.setEpisodes(anime.getEpisodes());
         return save(animeSaved);
+    }
+
+    @Transactional
+    @Override
+    public void updateEpisodes(long id, int episodes) {
+        animeJpaRepository.updateEpisodes(id, episodes);
     }
 }

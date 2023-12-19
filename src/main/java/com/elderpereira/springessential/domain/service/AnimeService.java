@@ -38,4 +38,9 @@ public class AnimeService implements AnimeServicePort {
     public Anime replace(long id, Anime anime) {
         return animeRepository.replace(id, anime);
     }
+
+    @Override
+    public void updateEpisodes(long id, int episodes) {
+        animeRepository.updateEpisodes(id, episodes);
+    }
 }
