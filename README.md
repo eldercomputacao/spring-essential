@@ -1,9 +1,9 @@
 # spring-essential project
 
-This project aims to be a spring boot tutorial center
-
 ## main
- 
+
+This project is a spring-boot tutorial for some resources:
+
 - Using simple CRUD wit database postgres
 - Using field mapping with ModelMapper
 - Using hexagonal architecture
@@ -16,6 +16,7 @@ This project aims to be a spring boot tutorial center
 - using content negotiation with jackson-dataformat-xml and jackson-dataformat-yaml
 - using CORS (Cross-Origin Resource Sharing)
 - using verb PATCH
+- using pageable, page, pagedmodel
 
 ## feat-1
 
@@ -47,3 +48,7 @@ This project aims to be a spring boot tutorial center
 
 - using CORS (Cross-Origin Resource Sharing)
 - using verb PATCH
+
+## feat-7
+
+- using Pageable
