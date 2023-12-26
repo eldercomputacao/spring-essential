@@ -4,6 +4,9 @@ server:
 cors:
   origin-patterns: ${ORIGIN_PATTERNS:http://localhost:3000,http://localhost:80,http://localhost:8080}
 
+file:
+  upload-dir: /home/files-dir
+
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
@@ -21,3 +24,9 @@ spring:
     mongodb:
       uri: mongodb://${MONGO_USER:root}:${MONGO_PASSWORD:example}@${MONGO_HOST:mongo}:${MONGO_PORT:27017}/
       database: ${MONGO_DB:mongo-db}
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 20MB
+      max-request-size: 20MB
