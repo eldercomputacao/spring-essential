@@ -18,6 +18,7 @@ This project is a spring-boot tutorial for some resources:
 - using verb PATCH
 - using pageable, page, pagedmodel
 - upload/download of files with MultipartFile
+- spring security with jwt token
 
 ## feat-1
 
@@ -57,3 +58,7 @@ This project is a spring-boot tutorial for some resources:
 ## feat-8
 
 - upload/download of files with MultipartFile
+
+## feat-9-auth-and-jwt-token
+
+- spring security with jwt token

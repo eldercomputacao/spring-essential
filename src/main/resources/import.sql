@@ -1,3 +1,14 @@
+insert into public.permission (role) values ('ADMIN');
+insert into public.permission (role) values ('MANAGER');
+insert into public.permission (role) values ('COMMON_USER');
+
+insert into public.users (user_name, full_name, password, account_non_expired, account_non_locked, credentials_non_expired, enabled) values ('elder', 'Elder Pereira', 'a1f6544d24f474f089001a123170cb31832efa84056615b31358703c7fd54eb9b870b1f53f3beaec', true, true, true, true);
+insert into public.users (user_name, full_name, password, account_non_expired, account_non_locked, credentials_non_expired, enabled) values ('pereira', 'Pereira Pereira', 'a1f6544d24f474f089001a123170cb31832efa84056615b31358703c7fd54eb9b870b1f53f3beaec', true, true, true, true);
+
+insert into public.user_permission (id_user, id_permission) values (1, 1);
+insert into public.user_permission (id_user, id_permission) values (2, 1);
+insert into public.user_permission (id_user, id_permission) values (1, 2);
+
 insert into public.anime (name, episodes) values ('Naruto', 540);
 insert into public.anime (name, episodes) values ('Dragon Ball Z', 350);
 insert into public.anime (name, episodes) values ('Common green iguana', 1);

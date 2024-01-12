@@ -1,7 +1,9 @@
 package com.elderpereira.springessential.infra.handler.exception;
 
 import com.elderpereira.springessential.domain.exceptions.BusinessException;
+import com.elderpereira.springessential.domain.exceptions.InvalidJwtAuthenticationException;
 import com.elderpereira.springessential.domain.exceptions.NotFoundException;
+import com.elderpereira.springessential.domain.exceptions.AuthenticationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -65,6 +67,45 @@ public class RequestExceptionHandler extends ResponseEntityExceptionHandler {
                 .build();
 
         return new ResponseEntity<>(responseError, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(InvalidJwtAuthenticationException.class)
+    public final ResponseEntity<ResponseError> handlerInvalidJwtAuthenticationException(InvalidJwtAuthenticationException ex, WebRequest request) {
+        ResponseError responseError = ResponseError.builder()
+                .message(ex.getMessage())
+                .details(request.getDescription(false))
+                .status(HttpStatus.UNAUTHORIZED.value())
+                .timestamp(LocalDateTime.now())
+                .build();
+
+        return new ResponseEntity<>(responseError, HttpStatus.UNAUTHORIZED);
+    }
+
+    @ExceptionHandler(AuthenticationException.class)
+    public final ResponseEntity<ResponseError> handlerUnauthorizedAuthenticationException(
+            AuthenticationException ex, WebRequest request) {
+        ResponseError responseError = ResponseError.builder()
+                .message(ex.getMessage())
+                .details(request.getDescription(false))
+                .status(HttpStatus.UNAUTHORIZED.value())
+                .timestamp(LocalDateTime.now())
+                .build();
+
+        return new ResponseEntity<>(responseError, HttpStatus.UNAUTHORIZED);
+    }
+
+    @Override
+    protected ResponseEntity<Object> handleExceptionInternal(Exception ex, Object body, HttpHeaders headers, HttpStatusCode statusCode, WebRequest request) {
+
+        ResponseError responseError = ResponseError.builder()
+                .message(ex.getMessage())
+                .details(request.getDescription(false))
+                .status(statusCode.value())
+                .timestamp(LocalDateTime.now())
+                .build();
+
+        return new ResponseEntity<>(responseError, headers, statusCode);
+
     }
 
     @ExceptionHandler(Exception.class)
