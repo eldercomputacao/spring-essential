@@ -4,6 +4,13 @@ server:
 cors:
   origin-patterns: ${ORIGIN_PATTERNS:http://localhost:3000,http://localhost:80,http://localhost:8080}
 
+security:
+  jwt:
+    token:
+      secret-key: 53cr37
+      #expire-length: 60000
+      expire-length: 3600000
+
 file:
   upload-dir: /home/files-dir
 
@@ -30,3 +37,10 @@ spring:
       file-size-threshold: 2KB
       max-file-size: 20MB
       max-request-size: 20MB
+
+springdoc:
+  pathsToMatch:
+    - /auth/**
+    - /**
+  swagger-ui:
+    use-root-path: true
